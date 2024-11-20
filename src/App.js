@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Main from './pages/Main';
+import BlogPostPage from "./components/PropsPracticePage";
+import RouterBasics from './components/RouterBasics';
+import ShoppingCart from './components/ShoppingCard';
+import FetchData from './components/FetchData';
+import FormValidation from './components/FormValidation';
+import EmployeeCard from "./components/ResusableComponentsPage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/card" element={<EmployeeCard />} />
+            <Route path="/blog" element={<BlogPostPage />} />
+          <Route path="/router" element={<RouterBasics />} />
+          <Route path="/cart" element={<ShoppingCart />} />
+          <Route path="/fetch" element={<FetchData />} />
+          <Route path="/form" element={<FormValidation />} />
+        </Routes>
+      </Router>
   );
-}
+};
 
 export default App;
